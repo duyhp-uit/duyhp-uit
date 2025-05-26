@@ -1,6 +1,10 @@
 import App from "./App"
 
-const Dock = () => {
+interface DockProps {
+  onClick: () => void
+}
+
+const Dock = ({ onClick }: DockProps) => {
   const apps = [
     {
       id: 1,
@@ -20,13 +24,9 @@ const Dock = () => {
     },
   ]
   return (
-    <div
-      className="flex items-center fixed justify-center left-1/2 -translate-x-1/2 h-[90px] px-6
-	  gap-4 rounded-[24px] border-[1px] border-solid border-[#c4b7b733]
-	  backdrop-blur-[32px] bottom-[3%] bg-[#fff8f810] z-10"
-    >
+    <div className="fixed bottom-[3%] left-1/2 z-10 flex h-[90px] -translate-x-1/2 items-center justify-center gap-4 rounded-[24px] border-[1px] border-solid border-[#c4b7b733] bg-[#fff8f810] px-6 backdrop-blur-[32px]">
       {apps.map((item) => (
-        <App key={item.id} iconSrc={item.src} />
+        <App onClick={onClick} key={item.id} iconSrc={item.src} />
       ))}
     </div>
   )

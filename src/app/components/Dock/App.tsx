@@ -1,20 +1,21 @@
-import Image from "next/image";
+import Image from "next/image"
 
 interface AppProps {
-  iconSrc: string;
+  iconSrc: string
+  onClick: () => void
 }
 
-const App = ({ iconSrc }: AppProps) => {
+const App = ({ iconSrc, onClick }: AppProps) => {
   return (
-    <button className="application relative">
+    <button className="application relative" onClick={onClick}>
       <Image
-        className="relative! hover:transition-all hover:duration-200 hover:w-[120px]! hover:mb-[46px]"
+        className="relative! hover:mb-[46px] hover:w-[120px]! hover:transition-all hover:duration-200"
         src={iconSrc}
         alt="icon"
         fill
       ></Image>
     </button>
-  );
-};
+  )
+}
 
-export default App;
+export default App
